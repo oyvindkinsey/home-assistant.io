@@ -158,9 +158,13 @@ The response data is a dictionary with the energy timestamps as strings and pric
 }
 ```
 
-### Add response to template sensor
+## Templates
 
-You can use the response data in a template sensor that is updated every hour:
+Create template sensors to display the prices in a chart or to calculate the all-in hour price.
+
+### Prices sensor with response data
+
+To use the response data from the actions, you can create a template sensor that updates every hour.
 
 {% raw %}
 
@@ -171,16 +175,39 @@ template:
         seconds: "*"
     actions:
       - action: easyenergy.get_energy_usage_prices
-        response_variable: response
+        response_variable: prices
         data:
-          config_entry: "013713c172577bada2874a32dbe44feb"
+          config_entry: 013713c172577bada2874a32dbe44feb
           incl_vat: true
     sensor:
       - name: Energy prices
         device_class: timestamp
         state: "{{ now() }}"
         attributes:
-          prices: "{{ response.prices }}"
+          prices: "{{ prices }}"
+```
+
+{% endraw %}
+
+### All-in price sensor
+
+To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: easyEnergy all-in current price
+        unique_id: allin_current_price
+        icon: mdi:cash
+        unit_of_measurement: "€/kWh"
+        state_class: measurement
+        state: >
+          {% set energy_tax = PUT_HERE_THE_PRICE %}
+          {% set purch_costs = PUT_HERE_THE_PRICE %}
+          {% set current_price = states('sensor.easyenergy_today_energy_usage_current_hour_price') | float(0) %}
+          {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
 
 {% endraw %}
