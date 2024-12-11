@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The easyEnergy integration integrates the [easyEnergy](https://www.easyenergy.com) API platform with Home Assistant.
+The **easyEnergy** {% term integration %} integrates the [easyEnergy](https://www.easyenergy.com) API platform with Home Assistant.
 
 The integration makes it possible to retrieve the dynamic energy/gas prices
 from easyEnergy in order to gain insight into the price trend of the day and
@@ -73,12 +73,12 @@ The energy and gas prices are exposed using [actions](/docs/scripts/perform-acti
 
 Fetches the hourly prices for gas.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
-| `incl_vat` | no | Defines whether the prices include or exclude VAT. Defaults to True | False
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| Data attribute | Optional | Description                                          | Example                          |
+| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry ID to use.                              | 013713c172577bada2874a32dbe44feb |
+| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | False                            |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
 #### Response data
 
@@ -103,12 +103,12 @@ The response data is a dictionary with the gas timestamps and prices as string a
 
 Fetches the hourly prices for energy that you use (buy).
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
-| `incl_vat` | no | Defines whether the prices include or exclude VAT.  Defaults to True | False
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| Data attribute | Optional | Description                                          | Example                          |
+| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry ID to use.                              | 013713c172577bada2874a32dbe44feb |
+| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | False                            |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              | 
 
 #### Response data
 
@@ -133,11 +133,11 @@ The response data is a dictionary with the energy timestamps as strings and pric
 
 Fetches the hourly prices for energy that you return (sell).
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| Data attribute | Optional | Description                                             | Example                          |
+| -------------- | -------- | ------------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry ID to use.                                 | 013713c172577bada2874a32dbe44feb |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00    | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 
 #### Response data
 
