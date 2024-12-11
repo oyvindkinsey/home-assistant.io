@@ -14,6 +14,9 @@ ha_quality_scale: legacy
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).
 
+> [!NOTE] 
+> The usefulnes of this component is extremely limited; consider using https://github.com/oyvindkinsey/avionmqtt instead, which integrates with Home Assistant via MQTT.
+
 ## Setup
 
 If you want to add your devices manually (like in the example below) then you need to get the API key. The API key can be obtained by executing the following command:
